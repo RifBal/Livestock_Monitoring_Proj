@@ -1,0 +1,17 @@
+[33mcommit 44866609f05c07ad43a06f732886294730934182[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Arif <arif.seelab@gmail.com>
+Date:   Wed Jul 9 16:37:51 2025 +0800
+
+    Remove unnecessary files before pushing the build
+
+[33mcommit 3842b5d75dac4960128ffe35d4ba0e429b016669[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Arif <arif.seelab@gmail.com>
+Date:   Wed Jul 9 13:48:50 2025 +0800
+
+    Initial commit
+
+[33mcommit 1bdfd513924c34eec8c94eda4f4a73c88dcac550[m
+Author: Arif <arif.seelab@gmail.com>
+Date:   Wed Jul 9 10:45:13 2025 +0800
+
+    Initialize project using Create React App

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Livestock_Monitoring_Proj/static/css/main.abf85afa.css",
+    "main.js": "/Livestock_Monitoring_Proj/static/js/main.4bc4391f.js",
+    "static/js/453.c274d784.chunk.js": "/Livestock_Monitoring_Proj/static/js/453.c274d784.chunk.js",
+    "index.html": "/Livestock_Monitoring_Proj/index.html",
+    "main.abf85afa.css.map": "/Livestock_Monitoring_Proj/static/css/main.abf85afa.css.map",
+    "main.4bc4391f.js.map": "/Livestock_Monitoring_Proj/static/js/main.4bc4391f.js.map",
+    "453.c274d784.chunk.js.map": "/Livestock_Monitoring_Proj/static/js/453.c274d784.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abf85afa.css",
+    "static/js/main.4bc4391f.js"
+  ]
+}
