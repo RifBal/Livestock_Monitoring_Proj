@@ -38,11 +38,8 @@ function App() {
     setLoading(true);
     setSceneTitle(scene);
 
-    if (!isVideoMode) {
-      setCurrentStream(sceneStreams[scene]);
-    } else {
-      setCurrentStream(sceneVideos[scene]);
-    }
+    const newSrc = isVideoMode ? sceneVideos[scene] : sceneStreams[scene];
+    setCurrentStream(newSrc);
   };
 
   useEffect(() => {
@@ -108,7 +105,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Sidebar */}
       <div className={`sidebar ${sidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
           <h2>Menu</h2>
@@ -146,10 +142,8 @@ function App() {
         </nav>
       </div>
 
-      {/* Overlay */}
       {sidebarOpen && <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />}
 
-      {/* Main Content */}
       <div className="main-content">
         <div className="header">
           <button
@@ -160,9 +154,8 @@ function App() {
             <Menu size={24} />
           </button>
           <span className="header-title">Livestock Monitoring System</span>
-
           <div className="header-logos">
-            <img src="/misc/1.png" alt="Logo 1" className="header-logo" />
+            <img src="/misc/1.png" alt="Logo 1" className="header-logo logo-msd" />
             <img src="/misc/2.png" alt="Logo 2" className="header-logo logo-seelab" />
           </div>
         </div>
@@ -171,7 +164,6 @@ function App() {
           <div className="left-panel">
             <div className="picture-box">
               {loading && <p className="loading-text">Loading...</p>}
-
               {!loading && currentStream && !hasError && (
                 isVideoMode ? (
                   <video
@@ -195,7 +187,6 @@ function App() {
                   />
                 )
               )}
-
               {!loading && hasError && (
                 <img
                   src="/images/FEEDNAN.png"
@@ -203,7 +194,6 @@ function App() {
                   className="stream-image"
                 />
               )}
-
               {!loading && !currentStream && (
                 <p className="loading-text">Select a scene to view feed.</p>
               )}
@@ -222,27 +212,30 @@ function App() {
             </div>
 
             {!loading && sceneTitle && (
-              <p className="report-info" style={{ marginTop: '20px' }}>Currently Viewing: {sceneTitle} ({isVideoMode ? 'Video' : 'Stream'})</p>
+              <p className="report-info" style={{ marginTop: '20px' }}>
+                Currently Viewing: {sceneTitle} ({isVideoMode ? 'Video' : 'Stream'})
+              </p>
             )}
           </div>
 
           <div className="right-panel">
-  <h2>Latest Report</h2>
-
-  <div className="card-scroll-container">
-  {Array.from({ length: 10 }, (_, i) => (
-    <div key={i} className="report-card">
-      <img
-        src={`/images/${(i % 10) + 1}.png`}// Adjust image path & number
-        alt={`Report ${i + 1}`}
-        className="report-image"
-      />
-      <p className="report-text"><strong>ID:</strong> {`${1000 + i}`}</p>
-      <p className="report-text"><strong>Status:</strong> {i % 2 === 0 ? 'Healthy' : 'Needs Attention'}</p>
-    </div>
-  ))}
-</div>
-</div>
+            <h2>Latest Report</h2>
+            <div className="card-scroll-container">
+              {Array.from({ length: 10 }, (_, i) => (
+                <div key={i} className="report-card">
+                  <img
+                    src={`/images/${(i % 10) + 1}.png`}
+                    alt={`Report ${i + 1}`}
+                    className="report-image"
+                  />
+                  <div>
+                    <p className="report-text"><strong>ID:</strong> {`${1000 + i}`}</p>
+                    <p className="report-text"><strong>Status:</strong> {i % 2 === 0 ? '' : ''}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
