@@ -155,8 +155,9 @@ body, html, #root {
 }
 
 .picture-box {
-  width: 1280px;
-  height: 720px;
+  width: 100%;
+  max-width: 1280px;
+  aspect-ratio: 16 / 9; /* maintains 1280x720 proportions */
   margin: 20px auto;
   background-color: #696969;
   border-radius: 12px;
@@ -193,7 +194,8 @@ body, html, #root {
 }
 
 .floating-button {
-  padding: 20px 76px;
+  padding: 12px 24px;
+  min-width: 120px;
   border-radius: 10px;
   border: none;
   background-color: #3b3f47;
@@ -398,4 +400,16 @@ body, html, #root {
   margin: 4px 0;
   text-align: left;  /* ✅ Ensures text is left-aligned */
   color: #ddd;        /* Optional for theme */
+}
+
+@media (max-width: 768px) {
+  .picture-box {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
